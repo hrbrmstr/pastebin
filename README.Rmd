@@ -1,0 +1,65 @@
+---
+output: rmarkdown::github_document
+---
+
+`pastebin` : Tools to work with the pastebin API
+
+**WIP!! The package API will very likely be in rapid change mode for a bit**
+
+The following functions are implemented:
+
+- `get_paste`:	Get raw paste data
+- `get_paste_metadata`:	Get paste metadata
+- `get_recent_pastes`:	Get recent pastes
+- `new_paste`:	Create a new paste
+- `pastebin_api_key`:	Get or set PASTEBIN_API_KEY value
+- `toString.paste`:	Extract just the paste text from a paste object
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/pastebin")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(pastebin)
+library(tidyverse)
+
+# current verison
+packageVersion("pastebin")
+
+r_pastes <- get_recent_pastes(lang="rsplus")
+
+glimpse(r_pastes)
+```
+
+Can't always trust the `lang` setting. Some non-R stuff in there:
+
+```{r message=FALSE}
+walk(r_pastes$key[1:10], ~print(toString(get_paste(.))))
+```
+
+Since the user is obvious:
+
+```{r message}
+mebbe_r <- filter(r_pastes, user != "AllRls_net")
+walk(mebbe_r$key, ~print(toString(get_paste(.))))
+```
+
+### Test Results
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(pastebin)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
