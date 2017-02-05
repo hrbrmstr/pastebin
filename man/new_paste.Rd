@@ -5,8 +5,7 @@
 \title{Create a new paste}
 \usage{
 new_paste(x, name = NULL, format = "text", visibility = c("public",
-  "unlisted", "private"), expires = "n",
-  pastebin_api_key = pastebin_api_key())
+  "unlisted", "private"), expires = "n", pastebin_key = pastebin_api_key())
 }
 \arguments{
 \item{name}{name/title of paste}
@@ -21,7 +20,7 @@ of a digit (the "number of") and a units character \code{m} for minute(s),
 \code{d} for day(s), \code{w} for week(s). Defaults to \code{n} (never). See
 \href{http://pastebin.com/api#6}{the detail page} for more info.}
 
-\item{pastebin_api_key}{pastebin API key}
+\item{pastebin_key}{pastebin API key}
 
 \item{text}{of paste}
 }

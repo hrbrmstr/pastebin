@@ -12,6 +12,7 @@ The following functions are implemented:
 
 - `get_paste`:	Get raw paste data
 - `get_paste_metadata`:	Get paste metadata
+- `get_trending_pastes`: Get trending pastes
 - `get_recent_pastes`:	Get recent pastes
 - `new_paste`:	Create a new paste
 - `pastebin_api_key`:	Get or set PASTEBIN_API_KEY value
@@ -21,7 +22,7 @@ The following functions are implemented:
 ### TODO
 
 - Paste as user
-- Pro paste feature
+- Finish API coverage including "Pro"" paste features
 - Testing
 
 ### Installation
@@ -42,6 +43,9 @@ library(tidyverse)
 
 # current verison
 packageVersion("pastebin")
+
+get_trending_pastes() %>% 
+  arrange(desc(hits))
 
 r_pastes <- get_recent_pastes(lang="rsplus")
 

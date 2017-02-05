@@ -9,15 +9,15 @@ get_paste_metadata(x)
 \arguments{
 \item{x}{paste id}
 
-\item{use_scraping_api}{if a pro member, set this to `TRUE`, otherwise leave it `FALSE`
+\item{use_scraping_api}{if a pro member, set this to \code{TRUE}, otherwise leave it \code{FALSE}
 and be kind to their servers lest ye be banned.}
 
-\item{include_metadata}{if `use_scraping_api` is `TRUE` and this is `TRUE`, the returned
-`list` will include metadata}
+\item{include_metadata}{if \code{use_scraping_api} is \code{TRUE} and this is \code{TRUE}, the returned
+\code{list} will include metadata}
 }
 \description{
 Get paste metadata
 }
 \references{
-[Scraping API](http://pastebin.com/api_scraping_faq)
+\href{http://pastebin.com/api_scraping_faq}{Scraping API}
 }

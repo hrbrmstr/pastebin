@@ -15,5 +15,5 @@ get_recent_pastes(limit = 50, lang = NULL)
 Get recent pastes
 }
 \references{
-[Scraping API](http://pastebin.com/api_scraping_faq)
+\href{http://pastebin.com/api_scraping_faq}{Scraping API}
 }

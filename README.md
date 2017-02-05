@@ -9,6 +9,7 @@ The following functions are implemented:
 
 -   `get_paste`: Get raw paste data
 -   `get_paste_metadata`: Get paste metadata
+-   `get_trending_pastes`: Get trending pastes
 -   `get_recent_pastes`: Get recent pastes
 -   `new_paste`: Create a new paste
 -   `pastebin_api_key`: Get or set PASTEBIN\_API\_KEY value
@@ -18,7 +19,7 @@ The following functions are implemented:
 ### TODO
 
 -   Paste as user
--   Pro paste feature
+-   Finish API coverage including "Pro"" paste features
 -   Testing
 
 ### Installation
@@ -44,6 +45,34 @@ packageVersion("pastebin")
     ## [1] '0.1.0'
 
 ``` r
+get_trending_pastes() %>% 
+  arrange(desc(hits))
+```
+
+    ## # A tibble: 18 × 10
+    ##         key                date                                  title   size expire_date private format_short
+    ##       <chr>              <dttm>                                  <chr>  <dbl>      <dttm>   <lgl>        <chr>
+    ## 1  sneAjEtZ 2017-02-03 03:55:22    DCW List - As of Feb 3 2017, 3:30PM  49001        <NA>   FALSE         text
+    ## 2  y9P19guS 2017-02-02 12:09:22              a backdoor with backdoors   2235        <NA>   FALSE         text
+    ## 3  pKDfBzxL 2017-02-02 18:18:09                                         83177        <NA>   FALSE         text
+    ## 4  pXRWThRZ 2017-02-01 22:09:06                                          2583        <NA>   FALSE         text
+    ## 5  2FDzA38q 2017-02-02 05:04:28                                           177        <NA>   FALSE         text
+    ## 6  ck9y4Fsr 2017-02-02 19:50:56 [DOC/JS threat] Uploaded by @JohnLaTwC  55510        <NA>   FALSE   javascript
+    ## 7  hfe0RmkZ 2017-02-03 19:20:58                DROPBOX DATABASE LEAKED   9973        <NA>   FALSE         text
+    ## 8  YmEf4Lg3 2017-02-04 13:24:39                                         69780        <NA>   FALSE         text
+    ## 9  gZbumgyx 2017-02-04 04:11:01                  NESMania Game Replays   4165        <NA>   FALSE         text
+    ## 10 QJL60dNC 2017-02-02 03:36:33                      02/02/2017 - KTOS   1159        <NA>   FALSE         text
+    ## 11 BMyYKAWQ 2017-02-03 14:39:09                     INFERNO RULES DUMP   5542        <NA>   FALSE         text
+    ## 12 g28xPFqf 2017-02-02 21:08:59    OPDeathEathers JTSEC full recon #99 187357        <NA>   FALSE         text
+    ## 13 fSv8esiY 2017-02-03 20:45:33                                           900        <NA>   FALSE         text
+    ## 14 hWDX5cxi 2017-02-02 11:19:23             UPDATED 03/02/2017 CSGO500  24006        <NA>   FALSE         text
+    ## 15 9nF9RHSm 2017-02-03 19:13:25                  ytsurp555 is a virus.     74        <NA>   FALSE         text
+    ## 16 J9NTXjYh 2017-02-05 05:49:22                        #FreeOurSisters   2466        <NA>   FALSE         text
+    ## 17 jPvffpFW 2017-02-02 10:28:17                                 leaked   4774        <NA>   FALSE         text
+    ## 18 kcJT0nT4 2017-02-02 19:26:39                         new list sssss  32396        <NA>   FALSE         text
+    ## # ... with 3 more variables: format_long <chr>, url <chr>, hits <dbl>
+
+``` r
 r_pastes <- get_recent_pastes(lang="rsplus")
 
 glimpse(r_pastes)
@@ -51,15 +80,15 @@ glimpse(r_pastes)
 
     ## Observations: 50
     ## Variables: 9
-    ## $ scrape_url <chr> "http://pastebin.com/api_scrape_item.php?i=LmNWvVzW", "http://pastebin.com/api_scrape_item.php?i...
-    ## $ full_url   <chr> "http://pastebin.com/LmNWvVzW", "http://pastebin.com/yuE9WC4T", "http://pastebin.com/EruPnWy9", ...
-    ## $ date       <dttm> 2017-02-05 13:49:11, 2017-02-05 13:10:12, 2017-02-05 12:20:30, 2017-02-05 03:34:16, 2017-02-05 ...
-    ## $ key        <chr> "LmNWvVzW", "yuE9WC4T", "EruPnWy9", "dw7zsagE", "9zTdrZsK", "UhDLx67h", "HL9KUbPT", "CEMgrGkp", ...
-    ## $ size       <dbl> 1613, 402, 2804, 1543, 447, 472, 447, 472, 472, 447, 422, 417, 402, 427, 1633, 1204, 350, 109, 5...
-    ## $ expire     <dttm> NA, NA, NA, 2017-02-12 03:34:16, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
-    ## $ title      <chr> "", "Ransom S01E05 HDTV x264-FLEET", "ues", "RRR", "Detroit Steel S01E02 HDTV x264-KILLERS", "De...
+    ## $ scrape_url <chr> "http://pastebin.com/api_scrape_item.php?i=DFH545DQ", "http://pastebin.com/api_scrape_item.php?i...
+    ## $ full_url   <chr> "http://pastebin.com/DFH545DQ", "http://pastebin.com/LmNWvVzW", "http://pastebin.com/yuE9WC4T", ...
+    ## $ date       <dttm> 2017-02-05 15:01:29, 2017-02-05 13:49:11, 2017-02-05 13:10:12, 2017-02-05 12:20:30, 2017-02-05 ...
+    ## $ key        <chr> "DFH545DQ", "LmNWvVzW", "yuE9WC4T", "EruPnWy9", "dw7zsagE", "9zTdrZsK", "UhDLx67h", "HL9KUbPT", ...
+    ## $ size       <dbl> 447, 1613, 402, 2804, 1543, 447, 472, 447, 472, 472, 447, 422, 417, 402, 427, 1633, 1204, 350, 1...
+    ## $ expire     <dttm> NA, NA, NA, NA, 2017-02-12 03:34:16, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+    ## $ title      <chr> "Black Sails S04E02 WEBRip X264-DEFLATE", "", "Ransom S01E05 HDTV x264-FLEET", "ues", "RRR", "De...
     ## $ syntax     <chr> "rsplus", "rsplus", "rsplus", "rsplus", "rsplus", "rsplus", "rsplus", "rsplus", "rsplus", "rsplu...
-    ## $ user       <chr> "", "AllRls_net", "", "", "AllRls_net", "AllRls_net", "AllRls_net", "AllRls_net", "AllRls_net", ...
+    ## $ user       <chr> "AllRls_net", "", "AllRls_net", "", "", "AllRls_net", "AllRls_net", "AllRls_net", "AllRls_net", ...
 
 Can't always trust the `lang` setting. Some non-R stuff in there:
 
@@ -67,6 +96,7 @@ Can't always trust the `lang` setting. Some non-R stuff in there:
 walk(r_pastes$key[1:10], ~print(toString(get_paste(.))))
 ```
 
+    ## [1] "\n\"   Black Sails S04E02 WEBRip X264-DEFLATE   \"\n#   Filename: Black.Sails.S04E02.WEBRip.X264-DEFLATE.mkv\n#   Size: 399.99 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/2hnjglq2/Black.Sails.S04E02.WEBRip.X264-DEFLATE.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/44cb773e21675407fd563946e4421299/Black.Sails.S04E02.WEBRip.X264-DEFLATE.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/5c26avxw1r8t/Black.Sails.S04E02.WEBRip.X264-DEFLATE.mkv.html"
     ## [1] "t1 <- proc.time()\r\n\r\ndata <- read.csv(\"dataset.csv\")\r\ndata <- data[data$class == 13, ] # load data, only 13 class\r\ndata <- data[data$attendance != 0, ]\r\ndata <- data[!duplicated(data[6:32]),]\r\n#data <- unique(data) # unique\r\n\r\n#difficulty of 2,3 instr\r\ni <- data[data$instr == 2, ]\r\nmeans <- colMeans(i) # means of all columns\r\ndeviations <- colSds(as.matrix(i)) # standard deviations\r\n\r\ni <- data[data$instr == 3, ]\r\nmeans <- colMeans(i) # means of all columns\r\ndeviations <- colSds(as.matrix(i)) # standard deviations\r\n\r\nsums <- colSums(data[1:33]) # sums of all columns\r\nmeans <- colMeans(data) # means of all columns\r\nmedians <- colMedians(as.matrix(data[1:33]))# medians\r\ndeviations <- colSds(as.matrix(data[1:33])) # standard deviations\r\ndispersions <- deviations*deviations # dispersions\r\nquantiles <- colQuantiles(as.matrix(data[1:33])) #quantilies\r\nmins <- colMins(as.matrix(data[1:33])) # min of each column\r\nmaxs <- colMaxs(as.matrix(data[1:33])) # max of each column\r\ncor <- cor(data[6:33]) # variance covariance matrix\r\ndet(cov(data[6:33]))\r\n\r\nproc.time() - t1\r\n\r\n#graphic\r\nbarplot(data.frame(table(i$difficulty))[,2],names.arg = \"Difficulty\",col = \"blue\")\r\nbarplot(data.frame(table(i$difficulty))[,2],names.arg = \"Difficulty\",col = \"blue\")\r\nbarplot(sums,col = \"blue\")\r\nbarplot(medians,col = \"blue\")\r\nbarplot(maxs,col=\"blue\")\r\nbarplot(quantiles[,1],col = \"blue\")\r\nbarplot(quantiles[,2],col = \"blue\")\r\nbarplot(quantiles[,3],col = \"blue\")\r\nbarplot(as.vector(table(as.vector(as.matrix(data[,6:33])))),col=\"blue\")\r\nboxplot(data[6:32],col = \"blue\")\r\nplot(sort(rowSums(data[6:33])),col=\"blue\",type = \"s\")"
     ## [1] "\n\"   Ransom S01E05 HDTV x264-FLEET   \"\n#   Filename: Ransom.S01E05.HDTV.x264-FLEET.mkv\n#   Size: 221.49 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/024rgxm7/Ransom.S01E05.HDTV.x264-FLEET.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/8ea37e4113156c376f0dc69dfa5b9abc/Ransom.S01E05.HDTV.x264-FLEET.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/w3fd0sai0u09/Ransom.S01E05.HDTV.x264-FLEET.mkv.html"
     ## [1] "library(rvest)\r\nURL <- \"https://archive.ics.uci.edu/ml/machine-learning-databases/eeg-mld/eeg_full/\"\r\n\r\npg <- read_html(URL)\r\nresult1 <- pg %>% html_nodes(\"a\") %>% html_attr(\"href\")\r\nresult2 <- result1[6:length(result1)]\r\n\r\nG <- 71 # asci for G\r\nset.seed(G)\r\nnAplus <- 10\r\nnA <- 5\r\nnBC <- 2\r\nmyGroupn <- nAplus\r\nusersToRead <- sample(1:length(result2),myGroupn,replace = FALSE)\r\nresult2[usersToRead]\r\n\r\n#418, 339, 417, 400, 415, 450, 351, 392, 416, 428\r\n\r\nuntar(\"co3a0000450.tar.gz\")\r\nuntar(\"co2c0000392.tar.gz\")\r\nuntar(\"co2c0000351.tar.gz\")\r\nuntar(\"co2c0000339.tar.gz\")\r\nuntar(\"co2a0000440.tar.gz\")\r\nuntar(\"co2a0000428.tar.gz\")\r\nuntar(\"co2a0000418.tar.gz\")\r\nuntar(\"co2a0000417.tar.gz\")\r\nuntar(\"co2a0000416.tar.gz\")\r\nuntar(\"co2a0000415.tar.gz\")\r\n\r\n#library(data.table)\r\n#list <- c(\"co3a0000450/\",\"co2c0000392/\",\"co2c0000351/\",\"co2c0000339/\",\"co2a0000440/\",\"co2a0000428/\",\"co2a0000418/\",\"co2a0000417/\",\"co2a0000416/\",\"co2a0000415/\")\r\n\r\nrep1 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co3a0000450/\",pattern = \".gz\")\r\nrep2 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2c0000392/\",pattern = \".gz\")\r\nrep3 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2c0000351/\",pattern = \".gz\")\r\nrep4 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2c0000339/\",pattern = \".gz\")\r\nrep5 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000440/\",pattern = \".gz\")\r\nrep6 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000428/\",pattern = \".gz\")\r\nrep7 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000418/\",pattern = \".gz\")\r\nrep8 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000417/\",pattern = \".gz\")\r\nrep9 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000416/\",pattern = \".gz\")\r\nrep10 <- list.files(path = \"C:/Users/raulg/Desktop/statistics/co2a0000415/\",pattern = \".gz\")\r\n\r\ncount<-0\r\nfor (i in rep1){\r\n  \r\n  a <- gzfile(paste(\"C:/Users/raulg/Desktop/statistics/co3a0000450/\",i,sep=\"\"))\r\n  res <- readLines(a)\r\n  for (i in res){\r\n  id<-paste(paste(strsplit(res[1],\"\")[[1]][11],strsplit(res[1],\"\")[[1]][12]),strsplit(res[1],\"\")[[1]][13])\r\n  id<-gsub(\" \", \"\", id, fixed = TRUE)\r\n  if(strsplit(res[1],\"\")[[1]][3]==\"a\"){\r\n    alch <- \"alch\"}\r\n  if(strsplit(res[1],\"\")[[1]][3]!=\"a\"){\r\n    alch <- \"nonAl\"}\r\n  \r\n  lal <- data.frame(toString(alch),\r\n                    id,\r\n                    paste(paste(strsplit(res[4],\" \")[[1]][2],strsplit(res[4],\" \")[[1]][3]),\r\n                          strsplit(res[8],\" \")[[1]][1]),\r\n                    strsplit(res[4],\" \")[[1]][6],\r\n                    strsplit(res[2],\" \")[[1]][4],\r\n                    count,\r\n                    strsplit(res[3],\" \")[[1]][2])\r\n  df <- rbind.data.frame(df,lal)\r\n  count <- count +1\r\n  print(i)\r\n  if(count == 256){\r\n    count<-0\r\n  }\r\n}}"
@@ -76,7 +106,6 @@ walk(r_pastes$key[1:10], ~print(toString(get_paste(.))))
     ## [1] "\n\"   Counting Cars S07E04 HDTV x264-KILLERS   \"\n#   Filename: Counting.Cars.S07E04.HDTV.x264-KILLERS.mkv\n#   Size: 190.96 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/lyzl1ydr/Counting.Cars.S07E04.HDTV.x264-KILLERS.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/86e7dd0341c627ccac35d51087f677c4/Counting.Cars.S07E04.HDTV.x264-KILLERS.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/aacdv5hcggt7/Counting.Cars.S07E04.HDTV.x264-KILLERS.mkv.html"
     ## [1] "\n\"   Counting Cars S07E04 720p HDTV x264-KILLERS   \"\n#   Filename: Counting.Cars.S07E04.720p.HDTV.x264-KILLERS.mkv\n#   Size: 631.49 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/8mbzb83g/Counting.Cars.S07E04.720p.HDTV.x264-KILLERS.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/32070ef793f42a8307d21fe3237dedde/Counting.Cars.S07E04.720p.HDTV.x264-KILLERS.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/qsyzf4nlg2vp/Counting.Cars.S07E04.720p.HDTV.x264-KILLERS.mkv.html"
     ## [1] "\n\"   Counting Cars S07E03 720p HDTV x264-KILLERS   \"\n#   Filename: Counting.Cars.S07E03.720p.HDTV.x264-KILLERS.mkv\n#   Size: 583.19 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/xqhf6css/Counting.Cars.S07E03.720p.HDTV.x264-KILLERS.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/7471aebb6fe68878bcd38fafa192e831/Counting.Cars.S07E03.720p.HDTV.x264-KILLERS.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/0jvn701so1uq/Counting.Cars.S07E03.720p.HDTV.x264-KILLERS.mkv.html"
-    ## [1] "\n\"   Counting Cars S07E03 HDTV x264-KILLERS   \"\n#   Filename: Counting.Cars.S07E03.HDTV.x264-KILLERS.mkv\n#   Size: 176.47 MB\n\n\"  Uploaded  \"\nhttp:/uploaded.net/file/fb9hzbb9/Counting.Cars.S07E03.HDTV.x264-KILLERS.mkv\n\n\"  Rapidgator  \"\nhttp:/rapidgator.net/file/2b5928895dc6ea09dcf6ccf62ca21fdb/Counting.Cars.S07E03.HDTV.x264-KILLERS.mkv.html\n\n\"  Uploadrocket  \"\nhttp:/uploadrocket.net/xfxnb9rtn515/Counting.Cars.S07E03.HDTV.x264-KILLERS.mkv.html"
 
 Since the user is obvious:
 
@@ -110,7 +139,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Sun Feb  5 14:34:25 2017"
+    ## [1] "Sun Feb  5 15:02:48 2017"
 
 ``` r
 test_dir("tests/")

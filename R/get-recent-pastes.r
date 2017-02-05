@@ -1,5 +1,6 @@
 #' Get recent pastes
 #'
+#' @md
 #' @param limit number of recent pastes to fetch. Limit is 500, default is 50.
 #' @param lang limit the recent paste list to a particular language. Default is all pastes
 #' @references [Scraping API](http://pastebin.com/api_scraping_faq)

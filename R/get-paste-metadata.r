@@ -1,5 +1,6 @@
 #' Get paste metadata
 #'
+#' @md
 #' @param x paste id
 #' @param use_scraping_api if a pro member, set this to `TRUE`, otherwise leave it `FALSE`
 #'        and be kind to their servers lest ye be banned.
