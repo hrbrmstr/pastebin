@@ -1,5 +1,7 @@
 
-`pastebin` : Tools to work with the pastebin API
+`pastebin` : Tools to work with the [pastebin](http://pastebin.com/) API
+
+> Pastebin is a website where you can store any text online for easy sharing. The website is mainly used by programmers to store pieces of sources code or configuration information, but anyone is more than welcome to paste any type of text. The idea behind the site is to make it more convenient for people to share large amounts of text online.
 
 **WIP!! The package API will very likely be in rapid change mode for a bit**
 
@@ -11,6 +13,13 @@ The following functions are implemented:
 -   `new_paste`: Create a new paste
 -   `pastebin_api_key`: Get or set PASTEBIN\_API\_KEY value
 -   `toString.paste`: Extract just the paste text from a paste object
+-   `as.character.paste`: Extract just the paste text from a paste object
+
+### TODO
+
+-   Paste as user
+-   Pro paste feature
+-   Testing
 
 ### Installation
 
@@ -101,7 +110,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Sun Feb  5 14:22:01 2017"
+    ## [1] "Sun Feb  5 14:34:25 2017"
 
 ``` r
 test_dir("tests/")

@@ -5,7 +5,7 @@
 \title{Create a new paste}
 \usage{
 new_paste(x, name = NULL, format = "text", visibility = c("public",
-  "unlisted", "private"), expires = "N",
+  "unlisted", "private"), expires = "n",
   pastebin_api_key = pastebin_api_key())
 }
 \arguments{
@@ -27,4 +27,8 @@ of a digit (the "number of") and a units character \code{m} for minute(s),
 }
 \description{
 Create a new paste
+}
+\note{
+The maximum size a paste can be is 512 kilobytes (0.5 megabytes). Pro members are
+allowed to create pastes up to 10 megabytes.
 }

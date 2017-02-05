@@ -48,3 +48,11 @@ get_paste <- function(x, use_scraping_api=FALSE, include_metadata=FALSE) {
 #' @param ... unused
 #' @export
 toString.paste <- function(x, ...) { x$text }
+
+
+#' Extract just the paste text from a paste object
+#'
+#' @param x paste object
+#' @param ... unused
+#' @export
+as.character.paste <- function(x, ...) { x$text }
