@@ -15,13 +15,15 @@ The following functions are implemented:
 - `get_trending_pastes`: Get trending pastes
 - `get_recent_pastes`:	Get recent pastes
 - `new_paste`:	Create a new paste
-- `pastebin_api_key`:	Get or set PASTEBIN_API_KEY value
+- `pastebin_api_key`:	Get or set `PASTEBIN_API_KEY` value
 - `toString.paste`:	Extract just the paste text from a paste object
 - `as.character.paste`:	Extract just the paste text from a paste object
 
+If you want the `impersonate` parameter of `new_paste()` to work you _must_ set `PASTEBIN_USER` and `PASTEBIN_PASSWORD` (preferably in `~/.Renviron`).
+
 ### TODO
 
-- Paste as user
+- <strike>Paste as user</strike>
 - Finish API coverage including "Pro"" paste features
 - Testing
 

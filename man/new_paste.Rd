@@ -4,14 +4,19 @@
 \alias{new_paste}
 \title{Create a new paste}
 \usage{
-new_paste(x, name = NULL, format = "text", visibility = c("public",
-  "unlisted", "private"), expires = "n", pastebin_key = pastebin_api_key())
+new_paste(x, name = NULL, format = "text", impersonate = FALSE,
+  visibility = c("public", "unlisted", "private"), expires = "n",
+  pastebin_key = pastebin_api_key())
 }
 \arguments{
 \item{name}{name/title of paste}
 
 \item{format}{hint for syntax highlighting. Defaults to \code{text}. See
 \href{http://pastebin.com/api#5}{the detail page} for more info.}
+
+\item{impersonate}{if \code{TRUE} then \code{PASTEBIN_USER} and \code{PASTEBIN_PASSWORD} \emph{must} be set
+in order to generate a user key to be applied with the API key. Don't blame me,
+blame \href{http://pastebin.com/api#8}{pastebin}.}
 
 \item{visibility}{one of \code{public}, \code{unlisted} or \code{private}. Defaults to \code{public}}
 

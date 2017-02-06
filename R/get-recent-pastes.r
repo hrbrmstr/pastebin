@@ -7,7 +7,6 @@
 #' @export
 get_recent_pastes <- function(limit=50, lang=NULL) {
 
-
   if (limit<1) limit <- 50
   if (limit>500) limit <- 500
 
