@@ -2,11 +2,11 @@
 #'
 #' @md
 #' @param pastebin_key pastebin API key
-#' @references [http://pastebin.com/api#10](http://pastebin.com/api#10)
+#' @references [https://pastebin.com/api#10](https://pastebin.com/api#10)
 #' @export
 get_trending_pastes <- function(pastebin_key=pastebin_api_key()) {
 
-  res <- httr::POST("http://pastebin.com/api/api_post.php",
+  res <- httr::POST("https://pastebin.com/api/api_post.php",
                     body=list(api_dev_key=pastebin_key,
                               api_option="trends"),
                     encode="form")

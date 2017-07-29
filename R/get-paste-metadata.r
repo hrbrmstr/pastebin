@@ -1,16 +1,13 @@
 #' Get paste metadata
 #'
 #' @md
-#' @param x paste id
-#' @param use_scraping_api if a pro member, set this to `TRUE`, otherwise leave it `FALSE`
-#'        and be kind to their servers lest ye be banned.
-#' @param include_metadata if `use_scraping_api` is `TRUE` and this is `TRUE`, the returned
-#'        `list` will include metadata
-#' @references [Scraping API](http://pastebin.com/api_scraping_faq)
+#' @param paste_id paste id
+#' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
-get_paste_metadata <- function(x) {
+get_paste_metadata <- function(paste_id) {
 
-  res <- httr::GET("http://pastebin.com/api_scrape_item_meta.php", query=list(i=x))
+  res <- httr::GET("https://pastebin.com/api_scrape_item_meta.php",
+                   query=list(i=paste_id))
 
   httr::stop_for_status(res)
 

@@ -3,7 +3,7 @@
 #' @md
 #' @param limit number of recent pastes to fetch. Limit is 500, default is 50.
 #' @param lang limit the recent paste list to a particular language. Default is all pastes
-#' @references [Scraping API](http://pastebin.com/api_scraping_faq)
+#' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
 get_recent_pastes <- function(limit=50, lang=NULL) {
 
@@ -13,7 +13,7 @@ get_recent_pastes <- function(limit=50, lang=NULL) {
   params <- list(limit=limit)
   if (!is.null(lang)) params$lang <- lang
 
-  res <- httr::GET("http://pastebin.com/api_scraping.php",
+  res <- httr::GET("https://pastebin.com/api_scraping.php",
                    query=params)
   httr::stop_for_status(res)
 

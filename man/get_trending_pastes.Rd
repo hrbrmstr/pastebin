@@ -13,5 +13,5 @@ get_trending_pastes(pastebin_key = pastebin_api_key())
 Get trending pastes
 }
 \references{
-\url{http://pastebin.com/api#10}
+\url{https://pastebin.com/api#10}
 }

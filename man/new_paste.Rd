@@ -4,30 +4,30 @@
 \alias{new_paste}
 \title{Create a new paste}
 \usage{
-new_paste(x, name = NULL, format = "text", impersonate = FALSE,
+new_paste(text, name = NULL, format = "text", impersonate = FALSE,
   visibility = c("public", "unlisted", "private"), expires = "n",
   pastebin_key = pastebin_api_key())
 }
 \arguments{
+\item{text}{of paste}
+
 \item{name}{name/title of paste}
 
 \item{format}{hint for syntax highlighting. Defaults to \code{text}. See
-\href{http://pastebin.com/api#5}{the detail page} for more info.}
+\href{https://pastebin.com/api#5}{the detail page} for more info.}
 
 \item{impersonate}{if \code{TRUE} then \code{PASTEBIN_USER} and \code{PASTEBIN_PASSWORD} \emph{must} be set
 in order to generate a user key to be applied with the API key. Don't blame me,
-blame \href{http://pastebin.com/api#8}{pastebin}.}
+blame \href{https://pastebin.com/api#8}{pastebin}.}
 
 \item{visibility}{one of \code{public}, \code{unlisted} or \code{private}. Defaults to \code{public}}
 
 \item{expires}{either \code{n} for never or an abbreviated time expiration string in the form
 of a digit (the "number of") and a units character \code{m} for minute(s),
 \code{d} for day(s), \code{w} for week(s). Defaults to \code{n} (never). See
-\href{http://pastebin.com/api#6}{the detail page} for more info.}
+\href{https://pastebin.com/api#6}{the detail page} for more info.}
 
 \item{pastebin_key}{pastebin API key}
-
-\item{text}{of paste}
 }
 \description{
 Create a new paste

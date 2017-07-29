@@ -11,7 +11,7 @@
 #'         in one call context and a `character` vector in another may be OK interactively
 #'         bit it creates a situation where you need to write `if` logic to handle
 #'         programmatically. Use [toString] to extract just the paste body
-#' @references [Scraping API](http://pastebin.com/api_scraping_faq)
+#' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
 get_paste <- function(x, use_scraping_api=FALSE, include_metadata=FALSE) {
 
@@ -19,18 +19,18 @@ get_paste <- function(x, use_scraping_api=FALSE, include_metadata=FALSE) {
 
   if (!use_scraping_api) {
 
-    res <- httr::GET(sprintf("http://pastebin.com/raw/%s", x))
+    res <- httr::GET(sprintf("https://pastebin.com/raw/%s", x))
     httr::stop_for_status(res)
     paste_text <- httr::content(res, as="text", encoding="UTF-8")
 
   } else {
 
-    res <- httr::GET("http://pastebin.com/api_scrape_item.php",
+    res <- httr::GET("https://pastebin.com/api_scrape_item.php",
                      query=list(i=x))
     httr::stop_for_status(res)
     paste_text <- httr::content(res, as="text", encoding="UTF-8")
 
-    if (include_metadata) meta <- get_paste_metadat(x)
+    if (include_metadata) meta <- get_paste_metadata(x)
 
   }
 

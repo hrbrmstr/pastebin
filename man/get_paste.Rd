@@ -26,5 +26,5 @@ programmatically. Use \link{toString} to extract just the paste body
 Get raw paste data
 }
 \references{
-\href{http://pastebin.com/api_scraping_faq}{Scraping API}
+\href{https://pastebin.com/api_scraping_faq}{Scraping API}
 }

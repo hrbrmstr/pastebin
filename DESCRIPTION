@@ -1,12 +1,12 @@
 Package: pastebin
 Type: Package
 Title: Tools to Work with the 'pastebin' API
-Version: 0.1.0
-Date: 2017-02-05
+Version: 0.1.1
+Date: 2017-06-27
 Author: Bob Rudis (bob@@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Tools to work with the 'pastebin' API.
-URL: http://github.com/hrbrmstr/pastebin
+URL: https://github.com/hrbrmstr/pastebin
 BugReports: https://github.com/hrbrmstr/pastebin/issues
 License: AGPL
 Suggests:
@@ -14,9 +14,11 @@ Suggests:
 Depends:
     R (>= 3.2.0)
 Imports:
+    dplyr,
+    stats,
     purrr,
     httr,
     jsonlite,
     tibble,
     xml2
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1

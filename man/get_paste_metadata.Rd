@@ -4,20 +4,14 @@
 \alias{get_paste_metadata}
 \title{Get paste metadata}
 \usage{
-get_paste_metadata(x)
+get_paste_metadata(paste_id)
 }
 \arguments{
-\item{x}{paste id}
-
-\item{use_scraping_api}{if a pro member, set this to \code{TRUE}, otherwise leave it \code{FALSE}
-and be kind to their servers lest ye be banned.}
-
-\item{include_metadata}{if \code{use_scraping_api} is \code{TRUE} and this is \code{TRUE}, the returned
-\code{list} will include metadata}
+\item{paste_id}{paste id}
 }
 \description{
 Get paste metadata
 }
 \references{
-\href{http://pastebin.com/api_scraping_faq}{Scraping API}
+\href{https://pastebin.com/api_scraping_faq}{Scraping API}
 }
