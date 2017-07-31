@@ -12,6 +12,9 @@ get_paste_metadata(paste_id)
 \description{
 Get paste metadata
 }
+\note{
+This API call uses the Scraping API which requires a paid account and a white-listed IP address.
+}
 \references{
 \href{https://pastebin.com/api_scraping_faq}{Scraping API}
 }

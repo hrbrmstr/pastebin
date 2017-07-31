@@ -1,8 +1,8 @@
 Package: pastebin
 Type: Package
 Title: Tools to Work with the 'pastebin' API
-Version: 0.1.1
-Date: 2017-06-27
+Version: 0.2.1
+Date: 2017-07-31
 Author: Bob Rudis (bob@@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Tools to work with the 'pastebin' API.

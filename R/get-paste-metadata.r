@@ -2,6 +2,7 @@
 #'
 #' @md
 #' @param paste_id paste id
+#' @note This API call uses the Scraping API which requires a paid account and a white-listed IP address.
 #' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
 get_paste_metadata <- function(paste_id) {
@@ -11,7 +12,14 @@ get_paste_metadata <- function(paste_id) {
 
   httr::stop_for_status(res)
 
-  out <- jsonlite::fromJSON(httr::content(res, as="text", encoding="UTF-8"))
+  res <- httr::content(res, as="text", encoding="UTF-8")
+
+  if (grepl("THIS IP", res[1])) {
+    message(res)
+    return(invisible(NULL))
+  }
+
+  out <- jsonlite::fromJSON(res)
 
   out$date <- as.POSIXct(as.numeric(out$date), origin="1970-01-01")
   out$size <- as.numeric(out$size)

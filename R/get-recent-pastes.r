@@ -3,6 +3,7 @@
 #' @md
 #' @param limit number of recent pastes to fetch. Limit is 500, default is 50.
 #' @param lang limit the recent paste list to a particular language. Default is all pastes
+#' @note This API call uses the Scraping API which requires a paid account and a white-listed IP address.
 #' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
 get_recent_pastes <- function(limit=50, lang=NULL) {
@@ -17,9 +18,14 @@ get_recent_pastes <- function(limit=50, lang=NULL) {
                    query=params)
   httr::stop_for_status(res)
 
-  httr::content(res, as="text", encoding="UTF-8") %>%
-    jsonlite::fromJSON() %>%
-    as_tibble() -> out
+  res <- httr::content(res, as="text", encoding="UTF-8")
+
+  if (grepl("THIS IP", res[1])) {
+    message(res)
+    return(invisible(NULL))
+  }
+
+  out <- as_tibble(jsonlite::fromJSON(res))
 
   out$date <- as.POSIXct(as.numeric(out$date), origin="1970-01-01")
   out$size <- as.numeric(out$size)

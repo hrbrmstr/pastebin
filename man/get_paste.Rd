@@ -25,6 +25,9 @@ programmatically. Use \link{toString} to extract just the paste body
 \description{
 Get raw paste data
 }
+\note{
+This API call can use the Scraping API which requires a paid account and a white-listed IP address.
+}
 \references{
 \href{https://pastebin.com/api_scraping_faq}{Scraping API}
 }

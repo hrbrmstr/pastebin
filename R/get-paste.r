@@ -11,6 +11,7 @@
 #'         in one call context and a `character` vector in another may be OK interactively
 #'         bit it creates a situation where you need to write `if` logic to handle
 #'         programmatically. Use [toString] to extract just the paste body
+#' @note This API call can use the Scraping API which requires a paid account and a white-listed IP address.
 #' @references [Scraping API](https://pastebin.com/api_scraping_faq)
 #' @export
 get_paste <- function(x, use_scraping_api=FALSE, include_metadata=FALSE) {
